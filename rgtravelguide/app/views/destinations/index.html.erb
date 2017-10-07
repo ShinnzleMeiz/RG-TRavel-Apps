@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<h1 class="row text-center">Destinations</h1>
+</br>
+<% if @destinations.any? %>
+  <% @destinations.in_groups_of(3) do |group| %>
+    <div class="row">
+      <% group.compact.each do |destination| %>
+        <div class="col-xs-4" style="margin-top: 20px;">
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <%= link_to image_tag(destination.image_url, :width => '100%', :height => '200px'), destination if destination.image.present?%>
+            </div>
+            <div class="panel-footer">
+              <h4 class="text-center"><%= link_to destination.name, destination %></h4>
+              <p class="text-center"><%= destination.title %></p>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+<% else  %>
+   <p>No destinations found.</p>
+<% end %>

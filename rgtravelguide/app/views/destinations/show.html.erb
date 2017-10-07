@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<div class="row" style="margin:auto; width: 60%">
+<h1 class=" text-center" style="margin-bottom: 30px;" >
+  <strong><%= @destination.name %></strong>
+</h1>
+
+<p class="text-center">
+  <%= image_tag(@destination.image_url, :width => 600) if @destination.image.present? %>
+</p>
+
+<h2 class="text-center">
+  <strong><%= @destination.title %></strong>
+</h2>
+
+<p style="white-space: pre-line;">
+  <%= @destination.post %>
+</p>
+
+<p style="white-space: pre-line;">
+  <%= @destination.comment %>
+</p>
+  
+<br/>
+
+<p class="text-center">
+  <%= link_to 'Edit', edit_destination_path(@destination) %> |
+  <%= link_to 'Delete', @destination, confirm: 'Are you sure?', method: :delete %> |
+  <%= link_to 'Back', destinations_path %>
+</p>
+</div>
